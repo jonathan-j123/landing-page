@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Landing Page</title>
+    <style>
+        body {
+            font-family: roboto, sans-serif;
+            background: #1F2937;
+            background-image: url("images/bg-snow.jpg");
+            background-size: 600px 700px;
+            margin: 0;
+        }
+        .header-div, .body-div, .quote-div, .callout-div {
+            max-width: 1050px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 50px 50px 150px 50px;
+        }
+        .header{
+            display: flex;
+        }
+        .header-block {
+            display: flex;
+            flex: 1;
+            height: 60px;
+        }
+        .header-block img {
+            width: 200px;
+            background: #1a1a1a;
+        }
+        .header-block nav {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            align-items: center;
+            flex-direction: row;
+            height: 100%;
+            width: 100%;
+        }
+        .header-block nav a {
+            display:inline-block;
+            font-size: 18px;
+            color: #E5E7E8;
+            text-decoration: none;
+        }
+        .hero-section {
+            display: flex;
+            align-items: center;
+            margin-top: 100px;
+            flex-wrap: wrap;
+        }
+        .hero-section div {
+            flex: 1;
+        }
+        .hero-section h1 {
+            font-size: 48px;
+            color: #F9FAF8;
+            font-weight: 900;
+            margin: 0;
+        }
+        .hero-section p {
+            font-size: 18px;
+            color: #E5E7EB;
+            margin: 0;
+        }
+        .hero-section button, .callout-item button {
+            background: #3882F6;
+            color: #F9FAF8;
+            font-weight: 900;
+            display: inline-block;
+            min-height: 44px;
+            padding: 10px 24px;
+            border-radius: 8px;
+            border: none;
+            white-space: nowrap;
+            box-shadow: 0 3px 8px rgba(31, 41, 55, 0.18);
+            cursor: pointer;
+            transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+        }
+        .hero-section button:hover, .callout-item button:hover {
+            background: #2563eb;
+            box-shadow: 0 6px 14px rgba(31, 41, 55, 0.24);
+            transform: translateY(-2px);
+        }
+        .hero-section button:focus-visible, .callout-item button:focus-visible {
+            outline: 3px solid #1F2937;
+            outline-offset: 3px;
+        }
+        .hero-section button {
+            margin-top: 20px;
+        }
+        .hero-section img {
+            width: 100%;
+            height: 80%;
+        }
+        .body-div {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 50px 50px 50px 50px;
+        }
+        .body-div h1 {
+            font-size: 36px;
+            color: #1F2937;
+            margin: 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .body-div img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            display: block;
+        }
+        .body-flex {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+        .body-item {
+            flex: 1 1 150px;
+            max-width: 180px;
+            margin: 20px;
+            cursor: pointer;
+        }
+        .body-image-box {
+            box-sizing: border-box;
+            overflow: hidden;
+            background: #1F2937;
+            border: lightgray solid 5px;
+            border-radius: 8px;
+            box-shadow: inset 10px 20px 20px #000000, inset -10px -20px 20px #000000, 0.3px 1px 3px #000000, -0.3px -0.3px 3px #000000;
+        }
+        .body-item img {
+            border-radius: 3px 3px 0 0;
+        }
+        .body-item p {
+            color: #000000;
+            font-size: 18px;
+            margin: 12px;
+            text-align: center;
+            text-shadow: 0.5px 0.5px 3px #ffffff, -0.5px -0.5px 3px #ffffff;
+        }
+        .body-item:hover .body-image-box {
+            border: white solid 5px;
+            box-shadow: inset 5px 10px 20px #000000, inset -5px -10px 20px #000000;
+        }
+        .body-item:hover img {
+            transform: scale(1.05);
+            transition: transform 0.2s ease-in-out;
+        }
+        .quote-div {
+            background: rgb(83, 83, 83);
+            padding: 80px 50px;
+        }
+        .quote-text {
+            display: block;
+            font-style: italic;
+            font-size: 36px;
+            color: #F9FAF8;
+            text-align: left;
+        }
+        .quote-name {
+            display: block;
+            font-size: 24px;
+            color: #F9FAF8;
+            text-align: right;
+            margin-top: 20px;
+        }
+        .quote-name::before {
+            content: "— ";
+        }
+        .callout-div {
+            background: #E5E7EB;
+        }
+        .callout-item {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-start;
+            gap: clamp(24px, 5vw, 64px);
+            margin: 50px;
+            padding: 28px 32px;
+            border: 1px solid rgba(31, 41, 55, 0.16);
+            border-radius: 12px;
+            background: linear-gradient(110deg, #ffb648, #ffd27a);
+            box-shadow: 0 10px 24px rgba(31, 41, 55, 0.14);
+        }
+        .callout-div h3 {
+            font-size: 26px;
+            color: #1F2937;
+            margin: 0;
+        }
+        .callout-item p {
+            color: #374151;
+            line-height: 1.5;
+            margin: 8px 0 0;
+        }
+        @media (max-width: 600px) {
+            .callout-item {
+                margin: 24px;
+                padding: 24px;
+                gap: 16px;
+            }
+        }
+
+        footer {
+            background: #000000;
+            color: #F9FAF8;
+            text-align: center;
+            padding: 20px 50px;
+            max-width: 1050px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-div">
+        <div class="header">
+            <div class="header-block"><img id="main-logo" src="images/landing-page-logo.jpg" alt="Landing Page Logo"></div>
+            <div class="header-block">
+                <nav>
+                    <a href="#">Home</a>
+                    <a href="#">News</a>
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                </nav>
+            </div>
+        </div>
+        <div class="hero-section">
+            <div>
+                <h1>This website is awesome!</h1>
+                <p>This website has some subtext that goes here under main title.
+                    It's a smaller font and the color is lower contrast.
+                </p>
+                <button>Sign up</button>
+            </div>
+            <div>
+                <img src="images/hero-image.jpg" alt="Hero Image">
+            </div>
+        </div>
+    </div>
+    <div class="body-div">
+        <h1>Some random information</h1>
+        <div class="body-flex">
+            <div class="body-item">
+                <div class="body-image-box"><img src="images/body-box-1.jpg" alt="Gift Box 1"></div>
+                <p>This is some sample text for the first body item.</p>
+            </div>
+            <div class="body-item">
+                <div class="body-image-box"><img src="images/body-box-2.jpg" alt="Gift Box 2"></div>
+                <p>This is some sample text for the second body item.</p>
+            </div>
+            <div class="body-item">
+                <div class="body-image-box"><img src="images/body-box-3.jpg" alt="Gift Box 3"></div>
+                <p>This is some sample text for the third body item.</p>
+            </div>
+            <div class="body-item">
+                <div class="body-image-box"><img src="images/body-box-4.jpg" alt="Gift Box 4"></div>
+                <p>This is some sample text for the fourth body item.</p>
+            </div>
+        </div>
+        <div class="body-flex">
+
+        </div>
+    </div>
+    <div class="quote-div">
+        <span class="quote-text">This is an inspiring quote, or a testimonial from a customer. Maybe it's just filling up space, or maybe people will actually read it. Who know? All I know is that it looks nice.</span>
+        <span class="quote-name">Thor, god of Thunder</span>
+    </div>
+    <div class="callout-div">
+        <div class="callout-item">
+            <div>
+                <h3>Call to Action! It's time!</h3>
+                <p>Signup for our product by clicking that button right over there!</p>
+            </div>
+            <button>Sign up</button>
+        </div>
+    </div>
+    <footer>
+        <p>Copyright @ The Odin Project 2026</p>
+    </footer>
+</body>
+</html>
